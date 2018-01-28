@@ -1,6 +1,4 @@
 language: java
 jdk: oraclejdk8
 script:
-# - gradle -p RomanNumerals check
-# - gradle -p TextMunger check
-- gradle -p roman-numerals-2 check
+- gradle check
