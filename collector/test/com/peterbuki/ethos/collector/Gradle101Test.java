@@ -1,6 +1,7 @@
 package com.peterbuki.ethos.collector;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +22,7 @@ public class Gradle101Test {
         assertEquals("Hello World!", gradle.hello());
     }
 
-    @Test
+    @Ignore
     public void helloTestAlwaysFails() {
         assertEquals("Yo World!", gradle.hello());
     }
