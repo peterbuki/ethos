@@ -1,4 +1,4 @@
-package com.peterbuki.ethos.collector;
+package com.peterbuki.ethos.collector.samples;
 
 import org.junit.Before;
 import org.junit.Ignore;
