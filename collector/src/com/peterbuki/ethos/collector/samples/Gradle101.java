@@ -1,4 +1,4 @@
-package com.peterbuki.ethos.collector;
+package com.peterbuki.ethos.collector.samples;
 
 public class Gradle101
 {
