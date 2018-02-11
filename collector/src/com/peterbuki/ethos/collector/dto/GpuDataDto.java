@@ -1,6 +1,6 @@
 package com.peterbuki.ethos.collector.dto;
 
-public class GpuDataDto {
+public class GpuDataDto extends AbstractDto {
     private double temp;
     private double fan;
     private double hash;

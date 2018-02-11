@@ -10,7 +10,7 @@ import static java.lang.Thread.sleep;
  * Simple Data Generator for testing purposes.
  * It returns new dataset in every INTERVAL milliseconds
  */
-public class SimpleDataGenerator {
+public class SimpleDataGenerator implements DataGenerator {
     private final int INTERVAL;
 
     private volatile List<DataListener> listeners = new ArrayList<>();
@@ -82,7 +82,8 @@ public class SimpleDataGenerator {
         mainThread.start();
     }
 
-    public List<GpuDataDto> getGpuData()
+    @Override
+    public List<GpuDataDto> getData()
     {
         return gpuData;
     }
