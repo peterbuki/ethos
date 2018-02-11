@@ -5,7 +5,7 @@ import com.peterbuki.ethos.collector.dto.Dto;
 import java.util.List;
 
 public interface DataGenerator {
-    public List<? extends Dto> getData();
+    public List<? extends Dto> getLatestData();
 
     public void subscribe(DataListener listener) ;
 
