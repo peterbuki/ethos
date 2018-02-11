@@ -30,10 +30,13 @@ public class SimpleDataGeneratorTest {
         counter=0;
         generator.subscribe(gpuDataDto -> {
             data = gpuDataDto;
+            System.out.println(String.format("Received data: #%d", counter));
+            System.out.println(gpuDataDto.toString());
+//            gpuDataDto.forEach(gpuDataDto1 -> System.out.println(gpuDataDto.toString()));
             counter++;
         });
         // let's wait for double the interval time to make sure we get notification
-        sleep(INTERVAL*2);
+        sleep(INTERVAL*7+50);
         assertNotEquals("Should have been notified!", 0, counter);
         System.out.println("Got updates: " + counter);
     }
@@ -44,7 +47,7 @@ public class SimpleDataGeneratorTest {
         // wait for the generator to get ready
         while ( ! generator.isReady() ) { sleep(100); }
 
-        List<GpuDataDto> data = generator.getGpuData();
+        List<GpuDataDto> data = generator.getData();
 
         assertEquals("Must return 8 Dtos", 8, data.size() );
     }

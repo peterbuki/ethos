@@ -1,10 +1,14 @@
 package com.peterbuki.ethos.collector.dto;
 
-public class GpuDataDto {
+public class GpuDataDto extends AbstractDto {
     private double temp;
     private double fan;
     private double hash;
 
+    @Override
+    public String toString() {
+        return String.format("GPU temp: %3.1f°C | fan speed: %3.1f%% | hash rate: %2.1fMh/s", temp, fan, hash);
+    }
     public double getTemp() {
         return temp;
     }
