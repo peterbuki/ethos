@@ -1,6 +1,6 @@
 package com.peterbuki.ethos.collector.input;
 
-import com.peterbuki.ethos.collector.dto.GpuDataDto;
+import com.peterbuki.ethos.collector.dto.Dto;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class SimpleDataGeneratorTest {
 
     private static final int INTERVAL = 100;
     private SimpleDataGenerator generator;
-    private List<GpuDataDto> data = null;
+    private List<Dto> data = null;
     private int counter;
 
 
@@ -28,10 +28,10 @@ public class SimpleDataGeneratorTest {
     @Test
     public void listener_is_updated() throws Exception {
         counter=0;
-        generator.subscribe(gpuDataDto -> {
-            data = gpuDataDto;
+        generator.subscribe(dto -> {
+            data = dto;
             System.out.println(String.format("Received data: #%d", counter));
-            System.out.println(gpuDataDto.toString());
+            System.out.println(dto.toString());
 //            gpuDataDto.forEach(gpuDataDto1 -> System.out.println(gpuDataDto.toString()));
             counter++;
         });
@@ -47,7 +47,7 @@ public class SimpleDataGeneratorTest {
         // wait for the generator to get ready
         while ( ! generator.isReady() ) { sleep(100); }
 
-        List<GpuDataDto> data = generator.getData();
+        List<Dto> data = generator.getLatestData();
 
         assertEquals("Must return 8 Dtos", 8, data.size() );
     }
